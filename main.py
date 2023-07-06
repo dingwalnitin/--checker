@@ -7,4 +7,15 @@ plt.style.use('ggplot')
 
 import nltk
 
-file_ds=read_csv('')
+ds=pd.read_csv('IMDB Dataset.csv')
+print(ds.shape)
+
+eg=ds['review'][50]
+
+tokens = nltk.word_tokenize(eg)
+print(tokens[:10])
+tagged=nltk.pos_tag(tokens[:10])
+print(tagged)
+entities = nltk.chunk.ne_chunk(tagged)
+entities.pprint()
+
